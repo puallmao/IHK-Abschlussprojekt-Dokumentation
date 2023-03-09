@@ -1,0 +1,106 @@
+\documentclass[
+    ngerman,
+    toc=listof,
+    toc=bibliography,
+    footnotes=multiple,
+    parskip=half,
+    numbers=noendperiod,
+    fontsize=11pt
+]{scrartcl}
+    
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=2.5cm]{geometry}
+
+\input{Daten} % Metadaten
+\input{Utils} % Utils
+\input{Packages} % Packages
+\input{Template} % Template
+
+\begin{document}
+
+% Deckblatt
+\phantomsection
+\thispagestyle{empty}
+\pdfbookmark[1]{Deckblatt}{deckblatt}
+\input{Deckblatt}
+\cleardoublepage
+
+
+% Inhaltsverzeichnis
+\phantomsection
+\pagenumbering{Roman}
+\pdfbookmark[1]{Inhaltsverzeichnis}{inhaltsverzeichnis}
+\tableofcontents
+\cleardoublepage
+
+
+% Bildverzeichnis
+\phantomsection
+\listoffigures
+\cleardoublepage
+
+
+% Tabellenverzeichnis
+\phantomsection
+\listoftables
+\cleardoublepage
+
+
+% Listingverzeichnis
+\phantomsection
+\lstlistoflistings
+\cleardoublepage
+
+% Abkürzungsverzeichnis
+\section*{Abkürzungsverzeichnis}
+\markboth{Abkürzungsverzeichnis}{Abkürzungsverzeichnis}
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\input{Abkuerzungen}
+\clearpage
+
+
+
+% Inhalt
+\pagenumbering{arabic}
+% Einleitung
+\input{Inhalt/Einleitung}
+
+% Projektplanung
+\input{Inhalt/Projektplanung}
+
+% Analyse
+\input{Inhalt/Analyse}
+
+% Entwurf
+\input{Inhalt/Entwurf}
+
+% Implementierung
+\input{Inhalt/Implementierung}
+
+% Abnahme
+\input{Inhalt/Abnahme}
+
+
+
+% Literatur
+\clearpage
+\bibliography{Bibliographie}
+% \bibliographystyle{din}
+
+
+
+
+
+
+% Anhang
+\clearpage
+\pagenumbering{roman}
+\appendix
+\input{Anhang}
+
+
+
+% Eidesstattliche Erklärung
+
+
+\end{document}
